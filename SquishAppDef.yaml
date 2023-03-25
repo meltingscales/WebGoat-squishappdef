@@ -1,0 +1,49 @@
+---
+note: This is a "SquishAppDef" file, short for "Squished Application
+  Definition". It's meant to describe different characteristics about a software
+  application in a simple, easy-to-edit, easy-to-read, and
+  easy-for-a-machine-to-parse format. Please see
+  https://github.com/henryfbp/SquishAppDef for more information.
+application:
+  infrastructure:
+    - infrastructure-component:
+        name: webgoat-vm
+        type: virtual-machine
+        location: aws
+        description: "The virtual machine that runs WebGoat."
+    - infrastructure-component:
+        name: webgoat-lb
+        type: load-balancer
+        location: aws
+        description: "The load balancer in front of the WebGoat vm"
+  component:
+    name: WebGoat-monolith
+    description: "WebGoat, an intentionally vulnerable Java app. It's a monolithic app, it does web frontend, business logic, and database backend."
+    languages:
+      - language: java
+        version: 17
+    vcs-system:
+      - tool: git
+        uri: "git@github.com:HenryFBP/WebGoat-squishappdef.git"
+    build-system:
+      - build-tool:
+          tool: maven-wrapper
+          version: 3.8.1
+          build-command: "./mvnw install -DskipTests"
+          test-command: "./mvnw test"
+          artifacts:
+            - type: local-file
+              uri: "./target/webgoat-*.jar"
+    out-of-band-dependencies:
+      - out-of-band-dependency:
+          type: file
+          uri: "https://somevendorsite.com/someportal/myLib.001.jar"
+          location: "./jars/myLib.001.jar"
+  team:
+    members:
+      - name: Henry Post
+        ldap-name: hpost
+        role: Backend Engineer
+      - name: Jack Black
+        ldap-name: jblack
+        role: Database Admin
