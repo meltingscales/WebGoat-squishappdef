@@ -5,6 +5,10 @@ note: This is a "SquishAppDef" file, short for "Squished Application
   easy-for-a-machine-to-parse format. Please see
   https://github.com/henryfbp/SquishAppDef for more information.
 application:
+  directories:
+    - directory:
+        name: "TeamAlpha-SquishAppDirectory"
+        uri: "https://github.com/HenryFBP/TeamAlpha-SquishAppDirectory"
   infrastructure:
     - infrastructure-component:
         name: webgoat-vm
