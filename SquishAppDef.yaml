@@ -29,7 +29,7 @@ application:
             version: 17
         vcs-system:
           - tool: git
-            uri: "git@github.com:HenryFBP/WebGoat-squishappdef.git"
+            uri: "git@github.com:HenryFBP/WebGoat-SquishAppDef.git"
         build-system:
           - build-tool:
               tool: maven-wrapper
