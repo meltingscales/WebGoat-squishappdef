@@ -48,9 +48,11 @@ application:
               location: "./jars/myLib.001.jar"
   team:
     members:
-      - name: Henry Post
+      - id: hpost
         ldap-name: hpost
+        name: Henry Post
         role: Backend Engineer
-      - name: Jack Black
+      - id: jblack
         ldap-name: jblack
+        name: Jack Black
         role: Database Admin
